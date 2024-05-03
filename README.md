@@ -1,5 +1,6 @@
 # KMER_info
-## Jenna Salem
+## A K-Mer search code for a genomic sequence
+### Jenna Salem
 KMER-info is a Python script created to find k-mers and subsequent k-mers from a specified genomic sequence. 
 For more information about k-mers and what they are within the study of Bioinformatics:
   https://medium.com/swlh/bioinformatics-1-k-mer-counting-8c1283a07e29
