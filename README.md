@@ -3,7 +3,8 @@
 ### Jenna Salem, University of Rhode Island, May 2024
 
 # What is a k-mer?
-A k-mer is simply a specific number of nucleotides/base-pairs within a DNA sequence. For example, a 3-mer (k-mer the size of 3) could be GCA from the sequence GCATGTCCCA. Essentially, all the k-mers within a sequence will overlap by 1, as seen below:
+A k-mer is simply a specific number of nucleotides/base-pairs within a DNA sequence. For example, a 3-mer (k-mer the size of 3) could be GCA from the sequence GCATGTCCCA. Essentially, all the k-mers within a sequence will overlap by 1:
+
 GCA, CAT, ATG, TGT, GTC, TCC, CCC, CCA
 
 # About
