@@ -1,11 +1,13 @@
 # KMER_info
-## A K-Mer search code for a genomic sequence
+## A K-mer search for a genomic sequence
 ### Jenna Salem, University of Rhode Island, May 2024
 
 # What is a k-mer?
 A k-mer is simply a specific number of nucleotides/base-pairs within a DNA sequence. For example, a 3-mer (k-mer the size of 3) could be GCA from the sequence GCATGTCCCA. Essentially, all the k-mers within a sequence will overlap by 1:
 
 GCA, CAT, ATG, TGT, GTC, TCC, CCC, CCA
+
+K-mers are specifically important in the realm of bioinformatics, as defining them makes it easier to assemble genomes and also making analysis of smaller bits of sequence more manageable.
 
 # About
 KMER-info is a Python script created to find k-mers and subsequent k-mers from a specified genomic sequence. 
@@ -27,7 +29,11 @@ For more information about k-mers and what they are within the study of Bioinfor
 # How To Use KMER_info
 
 # Input
+The input for this code will be a genomic sequence of your choosing.
 ## Input Options
+There are two input options for this program.
+- Text of the genomic sequence, defined as s = "ATGTCTGTCTGAA". Using this input option is found in the beginning of the code.
+- File that includes a genomic sequence, defined using file_path = ...
 
 # Output
 The output of each specific "question" varies. Listed below are explainations for each.
@@ -104,3 +110,4 @@ print(find_all_substrings(file_path, k))
 ```
 
 # Testing using pytest
+To test the code, there is a file within this repository named
