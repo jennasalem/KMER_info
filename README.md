@@ -41,11 +41,14 @@ The output of each specific "question" varies. Listed below are explainations fo
 ## Extending to identify all different observed substrings of any size, specified as k.
 This is the first question posed within the code. This code will count the number of unique k-mers of a given size, specified as k. So, this code is highlighing the number of unique k-mers within the sequence. 
 ## Extending to count the number of different observed substrings of all possible sizes.
-
+This code extends from the previous, using a defined sequence, and counting for a specified size of k. The output is printing the number of subsequent kmers within the sequence.
+## Function 1
 ## Defining a function to identify all substrings of size k for a single sequence, and all unique possible subsequent substrings.
-
+The first function utilizes a dictionary to store keys (the substrings of size k) and the values (the unique possible subsequent substrings of each substring). 
+## Function 2
 ## Defining a function identifying all possible substrings and their subsequent substrings from a file.
 
+## Function 3
 ## Defining a function to find the smallest unique value using prior functions.
 
 # Usage: Example
