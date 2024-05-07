@@ -23,8 +23,10 @@ For more information about k-mers and what they are within the study of Bioinfor
 ```
 
 # Files
-- assemble_genome.py is the main Python script that when run, outputs the subsequent k-mers
-- test_assembly.py is the script used when testing the function
+- KMER_info.py is the main Python script that when run, outputs the subsequent k-mers
+- test_KMER.py is the script used when testing the function
+- sequence.txt is an example file that can be used within the code
+- test_sequences.txt is a file to be used in the testing process
 
 # How To Use KMER_info
 
@@ -113,4 +115,8 @@ print(find_all_substrings(file_path, k))
 ```
 
 # Testing using pytest
-To test the code, there is a file within this repository named
+To test the code, there is a file within this repository named test_KMER.py.
+Run this in python3:
+```
+py.test test_KMER.py
+```
