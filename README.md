@@ -19,7 +19,7 @@ For more information about k-mers and what they are within the study of Bioinfor
 
 - You also need to clone this GitHub repository
 ```
-    git clone https://github.com/jennasalem/KMER_info
+    git clone https://github.com/jennasalem/KMER_info.git
 ```
 
 # Files
