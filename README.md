@@ -37,6 +37,15 @@ There are two input options for this program.
 - Text of the genomic sequence, defined as s = "ATGTCTGTCTGAA". Using this input option is found in the beginning of the code.
 - File that includes a genomic sequence, defined using file_path = ...
 
+# Formatting
+There are some things to note when making sure input files are formatted correctly to ensure an output. One in particular is if you have two sequences within one file. They must be defined, as sequence 1, 2, etc.. and also contain a > prior to the start. Here is the test_sequences.txt file below as an example.
+```
+>sequence1
+ATGTCTGTCTGAA
+>sequence2
+AGCTATAA
+```
+
 # Output
 The output of each specific "question" varies. Listed below are explainations for each.
 
