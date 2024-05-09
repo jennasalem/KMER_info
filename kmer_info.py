@@ -96,37 +96,33 @@ print(find_substrings(s, k))
 #Function identifying all possible substrings and their subsequent substrings from a file.
 def find_all_substrings(file_path, k):
     """
-    Finding all substrings of length k in the given sequence.
+    Find all substrings of size k in the content of the given file and their unique possible subsequent substrings.
 
     Arguments:
-    s (str): The input sequence.
-    k (int): The length of the substrings to find.
+    file_path (str): The path to the input file.
+    k (int): The size of the substrings to find.
 
     Returns:
-    dict: A dictionary containing each substring of length k and its possible subsequent substrings.
+    dict: A dictionary where the keys are the substrings of size k and the values are the unique possible subsequent substrings of each substring.
     """
-    substrings = {} # creating dictionary to store the substring and possible subsequent substrings
+    substrings = {}  # dictionary to store the substrings and their subsequent substrings
     with open(file_path, 'r') as file:
-        sequence_name = None # no sequence defined, as we are using a file path for this code
-        for line in file: # iterating over all possible substrings of length, k
-            if line.startswith(">"): # if line starts with '>', indicates new sequence. This can be used if your file has more than one sequence
-                if sequence_name:
-                    substrings[sequence_name] = find_substrings(sequence, k)  # finding substrings and their subsequent substrings for the sequence
-                sequence_name = line[1:].strip()  # extracting sequence name from the line
-                substrings[sequence_name] = {}  # new entry in the dictionary for sequence
-            else:  # if the line does not start with '>', it contains the sequence data (if file only contains one sequence)
-                sequence = line.strip()  # extracting the data
-    if sequence_name:
-        substrings[sequence_name] = find_substrings(sequence, k)  # find the substrings and their subsequent substrings for the last sequence in the file
+        content = file.read()  # read content from file
+        for i in range(len(content) - k + 1):
+            substring = content[i:i+k]  # extracting the substrings of size k
+            subsequent_substrings = set()  # set to store the unique possible subsequent substrings of each substring
+            for j in range(i + 1, i + k):
+                subsequent_substrings.add(content[j:j+k])  # extract each unique possible subsequent substring of size k
+            substrings[substring] = subsequent_substrings  # store the substrings and their subsequent substrings in the dictionary
     return substrings
 
-file_path = "../../shared/439539/reads.fa" # insert your file path here, make sure it is correct to ensure an output
-k = 2  # or specify any other value you want to test
+file_path = "../Python_439/reads.fa"  # specify the path to your file
+k = 2  # or any other value you want to test
 print(find_all_substrings(file_path, k))
+
 
 #FUNCTION 3
 #Function to find the smallest unique value using prior functions
-
 def smallest_unique_k(file_path):
     """
     Find the smallest value of k such that every substring of length k in the given sequence has only one possible subsequent substring.
@@ -137,22 +133,16 @@ def smallest_unique_k(file_path):
     Returns:
     int: The smallest value of k that satisfies the condition.
     """
-    with open(file_path, 'r') as file: # reading sequence within the file
-        s = file.read().strip()
-    k = 1 # specify a k value, you can change this k value for a desired output
+    k = 1  # specify a k value, you can change this k value for a desired output
     while True:
-        substrings = find_substrings(s, k) # find all substrings/subsequence substrings the length of k in the sequence
-        unique_substrings = set() # empty set to store the unique substrings
-        for substring in substrings:
-            for subsequent_substring in substrings[substring]: # iterating all possible subsequent substrings for the current substring
-                key = substring + subsequent_substring # key to chain the current substring and subsequent substring
-                if key not in unique_substrings: # if key has not been seen before, it is added to set of unique substrings
-                    unique_substrings.add(key)
-                else:
-                    break # if key has been seen before, break out of loop and continue onto the next substring
-            else:
-                return k # if there are subsequent substrings that have been seen before, return the value of k
-        k += 1 # increment value of k
-file_path = "../../shared/439539/reads.fa" # input file path
-k = smallest_unique_k(file_path) 
+        substrings = find_all_substrings(file_path, k) # find all substrings/subsequence substrings the length of k in the sequence
+        unique_substrings = set()  # store all unique subsequent substrings
+        for _, subsequent_substrings in substrings.items():
+            unique_substrings.update(subsequent_substrings)
+        if len(unique_substrings) == len(substrings) * (k - 1):
+            return k
+        k += 1
+file_path = "../Python_439/reads.fa"  # specify the path to your file
+k = smallest_unique_k(file_path)
 print(f"The smallest value of k is {k}.") # prints the output
+
