@@ -19,7 +19,7 @@ For more information about k-mers and what they are within the study of Bioinfor
 
 - You also need to clone this GitHub repository
 ```
-    git clone https://github.com/jennasalem/KMER_info
+    git clone https://github.com/jennasalem/KMER_info.git
 ```
 
 # Files
@@ -58,10 +58,10 @@ This code extends from the previous, using a defined sequence, and counting for 
 The first function utilizes a dictionary to store keys (the substrings of size k) and the values (the unique possible subsequent substrings of each substring). 
 ## Function 2
 ## Defining a function identifying all possible substrings and their subsequent substrings from a file.
-
+This second function takes sequences or a sequence from a file, and provides possible subsequent substrings, using the k value for the size of the k-mer you would like.
 ## Function 3
 ## Defining a function to find the smallest unique value using prior functions.
-
+The third function uses the prior functions as well as a dictionary tool that iterates over the substring lengths. To find unique values, a dictionary is helpful because if a key or value has been seen before, the loop breaks and continues on until a unique key is read.
 # Usage: Example
 Below is an example of how to use KMER_info, using python within your terminal.
 Simply copy and paste the code, updating the sequence:
@@ -129,3 +129,4 @@ Run this in python3:
 ```
 py.test test_KMER.py
 ```
+Make sure when using pytest that you are using the correct sequences in kmer_info.py, s = "ATGTCTGTCTGAA" and the "test_sequences.txt" file. The "test_sequences.txt" file was created and added to this repository for the testing code.
