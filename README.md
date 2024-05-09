@@ -129,6 +129,6 @@ print(find_all_substrings(file_path, k))
 To test the code, there is a file within this repository named test_KMER.py.
 Run this in python3:
 ```
-py.test test_KMER.py
+py.test test_kmer.py
 ```
 Make sure when using pytest that you are using the correct sequences in kmer_info.py, s = "ATGTCTGTCTGAA" and the "test_sequences.txt" file. The "test_sequences.txt" file was created and added to this repository for the testing code.
