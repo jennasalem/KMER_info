@@ -25,6 +25,7 @@ For more information about k-mers and what they are within the study of Bioinfor
 # Files
 - KMER_info.py is the main Python script that when run, outputs the subsequent k-mers
 - test_KMER.py is the script used when testing the function
+- reads.fa is the main file used for this project
 - sequence.txt is an example file that can be used within the code
 - test_sequences.txt is a file to be used in the testing process
 
@@ -36,6 +37,7 @@ The input for this code will be a genomic sequence of your choosing.
 There are two input options for this program.
 - Text of the genomic sequence, defined as s = "ATGTCTGTCTGAA". Using this input option is found in the beginning of the code.
 - File that includes a genomic sequence, defined using file_path = ...
+- The file that is used for this project is reads.fa, other files are just for example or testing
 
 # Formatting
 There are some things to note when making sure input files are formatted correctly to ensure an output. One in particular is if you have two sequences within one file. They must be defined, as sequence 1, 2, etc.. and also contain a > prior to the start. Here is the test_sequences.txt file below as an example.
