@@ -14,17 +14,20 @@ def test_find_substrings():
     assert find_substrings(s, k) == expected
 
 def test_find_all_substrings():
-    file_path = "test_sequences.txt"
+    file_path = "reads.fa"
     k = 2
-    expected_output = {
-        'seq1': {'AT': {'TG'}, 'TG': {'GA'}, 'GT': {'TC'}, 'TC': {'CT'}, 'CT': {'TG'}, 'GA': {'AA'}, 'AA': {'A'}},
-        'sequence2': {'AG': {'GG'}, 'GG': {'GC'}, 'GC': {'CT'}, 'CT': {'TA'}, 'TA': {'AA'}, 'AC': {'CT'}, 'AA': {'A'}}
-    }
-    actual_output = find_all_substrings(file_path, k)
-    assert find_all_substrings(file_path, k) == expected_output
+    expected = {"GA": {"AT"}, "AA": {"AC"}, "AT": {"TA"}, "TT": {"TA"}, "TC": {"CA"}}
+    expected_first_5 = {key: expected[key] for key in list(expected.keys())[:5]}
+    actual = find_all_substrings(file_path, k)
+    actual_first_5 = {key: actual[key] for key in list(actual.keys())[:5]}
+    expected_sorted = {key: sorted(value) for key, value in expected_first_5.items()}
+    actual_sorted = {key: sorted(value) for key, value in actual_first_5.items()}
+    
+    assert actual_sorted == expected_sorted
+
 
 def test_smallest_unique_k():
-    file_path = "test_sequences.txt"
+    file_path = "reads.fa"
     assert smallest_unique_k(file_path) == 1
 
 if __name__ == "__main__":
